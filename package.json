@@ -1,0 +1,22 @@
+{
+  "name": "react-native-yyl-searchlist",
+  "version": "0.0.2",
+  "description": "",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanyulin/YYLRNSearchList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanyulin/YYLRNSearchList/issues"
+  },
+  "homepage": "https://github.com/yanyulin/YYLRNSearchList#readme"
+}
