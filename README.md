@@ -1,5 +1,7 @@
 # YYLRNSearchList
 
+react-native-yyl-searchlist for use on iOS and Android.
+
 ## Installation
 
 ```bash
