@@ -17,36 +17,28 @@ const { cancelButtonWidth: buttonWidth, searchBarHorizontalPadding, searchIconWi
 export default class SearchBar extends Component {
     static propTypes = {
         placeholder: PropTypes.string,
-        onChange: PropTypes.func, // search input value changed callback,
-
-        onFocus: PropTypes.func, // search input focused callback
-        onBlur: PropTypes.func, // search input blured callback
-
-        onClickCancel: PropTypes.func, // the search cancel button clicked
-        cancelTitle: PropTypes.string, // title for the search cancel button
-        cancelTextColor: PropTypes.string, // color for the search cancel button
-
-        searchInputBackgroundColor: PropTypes.string, // default state background color for the search input
-        searchInputBackgroundColorActive: PropTypes.string, // active state background color for the search input
-        searchInputPlaceholderColor: PropTypes.string, // default placeholder color for the search input
-        searchInputTextColor: PropTypes.string, // default state text color for the search input
-        searchInputTextColorActive: PropTypes.string, // active state text color for the search input
-
-        searchBarBackgroundColor: PropTypes.string, // active state background color for the search bar
-
-        isShowHolder: PropTypes.bool // 是否显示搜索图标
+        onChange: PropTypes.func,
+        onFocus: PropTypes.func,
+        onBlur: PropTypes.func,
+        onClickCancel: PropTypes.func,
+        cancelTitle: PropTypes.string,
+        cancelTextColor: PropTypes.string,
+        searchInputBackgroundColor: PropTypes.string,
+        searchInputBackgroundColorActive: PropTypes.string,
+        searchInputPlaceholderColor: PropTypes.string,
+        searchInputTextColor: PropTypes.string,
+        searchInputTextColorActive: PropTypes.string,
+        searchBarBackgroundColor: PropTypes.string,
+        isShowHolder: PropTypes.bool
     }
 
     static defaultProps = {
         searchInputBackgroundColor: '#E1E2E7',
         searchInputBackgroundColorActive: '#F5F5F5',
-
         searchInputPlaceholderColor: '#9D9D9D',
         searchInputTextColor: '#171a23',
         searchInputTextColorActive: '#000',
-
         searchBarBackgroundColor: '#F5F5F5',
-
         cancelTextColor: '#000',
         cancelTitle: '取消'
     }
@@ -157,7 +149,7 @@ export default class SearchBar extends Component {
                         ]}>
                         <Image
                             style={styles.searchIconStyle}
-                            source={require('../images/icon-search.png')} />
+                            source={require('../images/image-icon-search.png')} />
                     </Animated.View>
 
                     <Animated.View
@@ -170,7 +162,7 @@ export default class SearchBar extends Component {
                         }]}>
                         <Image
                             style={styles.searchIconStyle}
-                            source={require('../images/icon-search.png')} />
+                            source={require('../images/image-icon-search.png')} />
                         <Text style={{
                             marginLeft: 5,
                             color: this.props.searchInputPlaceholderColor,
