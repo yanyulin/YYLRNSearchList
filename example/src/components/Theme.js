@@ -15,8 +15,6 @@ export default {
 
     primaryDark: '#f5f5f5',
     primaryLight: '#171a23',
-
-    // secondary: '',
     maskColor: 'rgba(0, 0, 0, 0.1)'
   },
   size: {
@@ -33,8 +31,8 @@ export default {
     statusBarHeight,
 
     searchIconWidth: 30,
-    cancelButtonWidth: 70, // width for the cancel button area, should be a fix value at this moment
-    searchBarHorizontalPadding: 8 // padding between the search input and the search bar
+    cancelButtonWidth: 70,
+    searchBarHorizontalPadding: 8
   },
   duration: {
     toggleSearchBar: 300

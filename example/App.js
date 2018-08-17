@@ -9,20 +9,42 @@ import {
     StyleSheet,
     Text,
     View,
-    SectionList,
+    FlatList,
 } from 'react-native'
 
 // import SearchList, { HighlightableText, Touchable } from 'react-native-yyl-searchlist'
 import { SearchList } from './src'
 
-
+let originSources = [
+    { key: 'Devin' },
+    { key: 'Jackson' },
+    { key: 'James' },
+    { key: 'Joel' },
+    { key: 'John' },
+    { key: 'Jillian' },
+    { key: 'Jimmy' },
+    { key: 'Julie' },
+]
 export default class example extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            dataSources: originSources
+        }
     }
 
     componentDidMount() {
-        
+
+    }
+
+    _onSearch(str) {
+        var res = originSources.filter(function (item) {
+            return item.key.indexOf(str) >= 0;
+        });
+        this.setState({
+            dataSources: res || originSources
+        })
     }
 
     render() {
@@ -37,6 +59,8 @@ export default class example extends Component {
 
                     onSearch={(str) => {
                         console.log("你输入的搜索内容:" + str)
+
+                        this._onSearch(str)
                     }}
                     onSearchEnd={() => {
                         console.log("取消了搜索")
@@ -52,40 +76,25 @@ export default class example extends Component {
     _renderListView = () => {
         return (
             <View style={{ flex: 1, backgroundColor: '#F0F0F0' }}>
-                <SectionList
-                    style={{  }}
-                    sections={[
-                        {title: 'D', data: ['Devin']},
-                        {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
-                    ]}
-                    renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-                    renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-                    keyExtractor={(item, index) => index}
-                    />
+                <FlatList
+                    data={ this.state.dataSources }
+                    renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+                />
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-})
+    container: {
+     flex: 1,
+     paddingTop: 22
+    },
+    item: {
+      padding: 10,
+      fontSize: 18,
+      height: 44,
+    },
+  })
 
 AppRegistry.registerComponent('example', () => example)

@@ -208,7 +208,7 @@ export default class SearchList extends Component {
                         paddingLeft: 15,
                         paddingRight: 15
                     }]}
-                    source={require('./images/icon-back.png')} />
+                    source={require('./images/image-left-arr.png')} />
             </TouchableOpacity>
         )
     }
