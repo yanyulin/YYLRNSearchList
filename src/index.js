@@ -1,7 +1,15 @@
+/**
+ * Created by haywoodfu on 2017/4/16.
+ */
+import SearchList from './SearchList'
 
-import {Alert} from 'react-native';
+import HighlightableText from './components/HighlightableText'
 
-export default test = () => {
+import Touchable from './utils/Touchable'
 
-    Alert.alert("我是来测试的")
+export default SearchList
+export {
+  SearchList,
+  HighlightableText,
+  Touchable
 }

@@ -1,49 +1,92 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- *
- * @format
- * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react'
+import {
+    AppRegistry,
+    StatusBar,
+    StyleSheet,
+    Text,
+    View,
+    SectionList,
+} from 'react-native'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+// import SearchList, { HighlightableText, Touchable } from 'react-native-yyl-searchlist'
+import SearchList, { HighlightableText, Touchable } from './src'
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+
+export default class example extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        
+    }
+
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <SearchList
+                    renderBackButton={() => null}
+                    toolbarBackgroundColor={'#2196f3'}
+                    title='Search List Demo'
+                    cancelTitle='取消'
+                    onClickBack={() => { }}
+                    searchListBackgroundColor={'#2196f3'}
+                    searchBarToggleDuration={300}
+                    searchInputBackgroundColor={'#0069c0'}
+                    searchInputBackgroundColorActive={'#6ec6ff'}
+                    searchInputPlaceholderColor={'#FFF'}
+                    searchInputTextColor={'#FFF'}
+                    searchInputTextColorActive={'#000'}
+                    searchInputPlaceholder='Search'
+                    sectionIndexTextColor={'#6ec6ff'}
+                    searchBarBackgroundColor={'#2196f3'} 
+                    renderListView={this._renderListView.bind(this)}
+                />
+            </View>
+        )
+    }
+
+    _renderListView = () => {
+        return (
+            <View style={{ flex: 1 }}>
+                <SectionList
+                    sections={[
+                        {title: 'D', data: ['Devin']},
+                        {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+                    ]}
+                    renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+                    renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+                    keyExtractor={(item, index) => index}
+                    />
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+   flex: 1,
+   paddingTop: 22
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(247,247,247,1.0)',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
   },
-});
+})
+
+AppRegistry.registerComponent('example', () => example)
