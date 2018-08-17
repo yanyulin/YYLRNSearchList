@@ -17,38 +17,25 @@ import Theme from './components/Theme'
 
 export default class SearchList extends Component {
     static propTypes = {
-           
         searchListBackgroundColor: PropTypes.string,
-
         toolbarBackgroundColor: PropTypes.string,
-
         searchBarToggleDuration: PropTypes.number,
         searchBarBackgroundColor: PropTypes.string,
-
         searchInputBackgroundColor: PropTypes.string,
         searchInputBackgroundColorActive: PropTypes.string,
-        
         searchInputTextColor: PropTypes.string,
-        
         searchInputTextColorActive: PropTypes.string,
         searchInputPlaceholderColor: PropTypes.string,
         searchInputPlaceholder: PropTypes.string,
-
         title: PropTypes.string,
         titleTextColor: PropTypes.string,
-
         cancelTitle: PropTypes.string,
         cancelTextColor: PropTypes.string,
- 
         sortFunc: PropTypes.func,
         resultSortFunc: PropTypes.func,
- 
         renderBackButton: PropTypes.func,
-        
-        
         onSearchStart: PropTypes.func,
         onSearchEnd: PropTypes.func,
-
         renderListView: PropTypes.func
     }
 
@@ -80,7 +67,7 @@ export default class SearchList extends Component {
     } 
 
     search(input) {
-        
+        this.props.onSearch && this.props.onSearch(input)
     }
 
     enterSearchState() {
@@ -146,7 +133,6 @@ export default class SearchList extends Component {
                 }]}>
                     <Toolbar
                         animatedValue={this.state.animatedValue}
-
                         style={[{
                             opacity: this.state.animatedValue.interpolate({
                                 inputRange: [0, 1],
@@ -173,6 +159,7 @@ export default class SearchList extends Component {
                         searchInputPlaceholderColor={this.props.searchInputPlaceholderColor}
                         searchInputTextColor={this.props.searchInputTextColor}
                         searchInputTextColorActive={this.props.searchInputTextColorActive}
+                        searchTextInputStyle={{ backgroundColor: '#E1E2E7' }}
                         ref='searchBar' />
                     <View
                         shouldRasterizeIOS
@@ -211,7 +198,7 @@ export default class SearchList extends Component {
      */
     _renderBackButton() {
         return (
-            <Touchable
+            <TouchableOpacity
                 onPress={this.props.onPress}>
                 <Image
                     hitSlop={{ top: 10, left: 20, bottom: 10, right: 20 }}
@@ -222,7 +209,7 @@ export default class SearchList extends Component {
                         paddingRight: 15
                     }]}
                     source={require('./images/icon-back.png')} />
-            </Touchable>
+            </TouchableOpacity>
         )
     }
 }

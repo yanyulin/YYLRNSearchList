@@ -1,6 +1,3 @@
-/**
- * Created by erichua on 13/12/2017.
- */
 import {
   Dimensions,
   Platform,
@@ -16,7 +13,7 @@ export default {
     primary: '#171a23',
     textPrimary: '#171a23',
 
-    primaryDark: '#171a23',
+    primaryDark: '#f5f5f5',
     primaryLight: '#171a23',
 
     // secondary: '',

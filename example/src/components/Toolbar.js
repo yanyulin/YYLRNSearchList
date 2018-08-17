@@ -23,7 +23,7 @@ export default class Toolbar extends Component {
   }
 
   static defaultProps = {
-    textColor: 'white'
+    textColor: '#000'
   }
 
   render () {

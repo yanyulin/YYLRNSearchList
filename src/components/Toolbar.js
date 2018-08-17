@@ -23,7 +23,7 @@ export default class Toolbar extends Component {
   }
 
   static defaultProps = {
-    textColor: 'white'
+    textColor: '#000'
   }
 
   render () {
@@ -45,7 +45,6 @@ export default class Toolbar extends Component {
     if (renderBackButton) {
       return renderBackButton()
     }
-
     return null
   }
 

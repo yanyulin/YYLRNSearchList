@@ -6,7 +6,6 @@
 import React, { Component } from 'react'
 import {
     AppRegistry,
-    StatusBar,
     StyleSheet,
     Text,
     View,
@@ -14,7 +13,7 @@ import {
 } from 'react-native'
 
 // import SearchList, { HighlightableText, Touchable } from 'react-native-yyl-searchlist'
-import SearchList, { HighlightableText, Touchable } from './src'
+import { SearchList } from './src'
 
 
 export default class example extends Component {
@@ -31,21 +30,20 @@ export default class example extends Component {
             <View style={{ flex: 1 }}>
                 <SearchList
                     renderBackButton={() => null}
-                    toolbarBackgroundColor={'#2196f3'}
-                    title='Search List Demo'
+                    title='搜索Demo'
                     cancelTitle='取消'
                     onClickBack={() => { }}
-                    searchListBackgroundColor={'#2196f3'}
-                    searchBarToggleDuration={300}
-                    searchInputBackgroundColor={'#0069c0'}
-                    searchInputBackgroundColorActive={'#6ec6ff'}
-                    searchInputPlaceholderColor={'#FFF'}
-                    searchInputTextColor={'#FFF'}
-                    searchInputTextColorActive={'#000'}
-                    searchInputPlaceholder='Search'
-                    sectionIndexTextColor={'#6ec6ff'}
-                    searchBarBackgroundColor={'#2196f3'} 
                     renderListView={this._renderListView.bind(this)}
+
+                    onSearch={(str) => {
+                        console.log("你输入的搜索内容:" + str)
+                    }}
+                    onSearchEnd={() => {
+                        console.log("取消了搜索")
+                    }}
+                    onSearchStart={() => {
+                        console.log("搜索框获取焦点开始搜索")
+                    }}
                 />
             </View>
         )
@@ -53,8 +51,9 @@ export default class example extends Component {
 
     _renderListView = () => {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, backgroundColor: '#F0F0F0' }}>
                 <SectionList
+                    style={{  }}
                     sections={[
                         {title: 'D', data: ['Devin']},
                         {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
